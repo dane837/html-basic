@@ -1,8 +1,14 @@
-function buttonClicked(){
-    alert('I am clicked');
-}
+$(function(){
+    var pages = ['index','project', 'about', 'contact'];
+    var pathname = window.location.pathname;
 
-function buttonToChangeTextClicked(){
-    document.getElementById('targetTag').innerHTML = "Javascript Text";
-}
+    $('.nav-link').each(function(i){
+        if(pathname.includes(pages[i])){
+            $(this).addClass('active');
+            $(this).attr('aria-current', 'page');
+        }else if(this.className.includes('active')){
+            $(this).removeClass('active');
+        }
+    });
+});
 
